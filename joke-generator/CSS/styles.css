@@ -1,0 +1,66 @@
+/* ==== Basic CSS Reset ==== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* ol,
+ul {
+  list-style: none;
+} */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ==== End CSS Reset ==== */
+
+body {
+  width: 1500px;
+  max-width: calc(100% - 8rem);
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.joke-container {
+  background: rgb(41, 134, 91);
+  padding: 1rem;
+  color: whitesmoke;
+}
+.joke-container button {
+	padding: .25rem 2rem;
+	font-size: 1.25rem;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	border: solid orange 3px;
+	border-radius: 10px;
+	background: rgba(255,255,255,.8)
+}
+
+.single-jokes-container {
+	padding-bottom: 1rem;
+	font-size: 1.25rem;
+}
+
+.single-jokes-container li {
+	margin-left: 1rem;
+	line-height: 1.7;
+}

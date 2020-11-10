@@ -1,0 +1,189 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TicTacToe</title>
+    <link rel="stylesheet" href="./CSS/styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Tic Tac Toe</h1>
+      <h2 class="message"></h2>
+      <div class="gameboard">
+        <div class="gameSquare" data-cell-index="0"></div>
+        <div class="gameSquare" data-cell-index="1"></div>
+        <div class="gameSquare" data-cell-index="2"></div>
+        <div class="gameSquare" data-cell-index="3"></div>
+        <div class="gameSquare" data-cell-index="4"></div>
+        <div class="gameSquare" data-cell-index="5"></div>
+        <div class="gameSquare" data-cell-index="6"></div>
+        <div class="gameSquare" data-cell-index="7"></div>
+        <div class="gameSquare" data-cell-index="8"></div>
+      </div>
+      <button class="restart">Restart</button>
+    </div>
+    <style>
+      .main-container {
+        width: 1500px;
+        max-width: calc(100% - 8rem);
+        margin: 0 auto;
+        padding: 2em;
+      }
+      .gameboard {
+        margin: 1em auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 800px;
+        grid-auto-rows: 150px;
+      }
+      .gameSquare {
+        /* height:  */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+      }
+      .gameSquare:nth-child(5) {
+        border: solid 2px rgb(22, 114, 22);
+      }
+
+      .gameSquare:nth-child(4),
+      .gameSquare:nth-child(6) {
+        border-top: solid 2px rgb(22, 114, 22);
+        border-bottom: solid 2px rgb(22, 114, 22);
+      }
+      .gameSquare:nth-child(2),
+      .gameSquare:nth-child(8) {
+        border-left: solid 2px rgb(22, 114, 22);
+        border-right: solid 2px rgb(22, 114, 22);
+      }
+
+      /* ==== Basic CSS Reset ==== */
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      ol,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      /* ==== End CSS Reset ==== */
+    </style>
+
+    <script>
+      let isUserTurn = true;
+      const gameboard = document.querySelector('.gameboard');
+      console.log({ gameboard });
+      let message = document.querySelector('.message');
+      const restartBtn = document.querySelector('.restart');
+      // prettier-ignore
+      let gameState = [
+		  "", "", "", 
+		  "", "", "", 
+		  "", "", ""
+		];
+
+      const winningConditions = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      function play(event) {
+        const cellIndex = parseInt(event.target.dataset.cellIndex);
+        console.log(cellIndex);
+        if (isUserTurn) {
+          if (!event.target.innerText) {
+            message.innerText = 'interesting move friend!';
+            event.target.innerText = 'X';
+            gameState[cellIndex] = 'X';
+          } else {
+            return (message.innerText = 'Pick an empty square!');
+          }
+          isUserTurn = !isUserTurn;
+          let roundWon = checkForWin('The player');
+          if (roundWon) return;
+        }
+        computerPlay();
+      }
+      function computerPlay() {
+        setTimeout(() => {
+          let squares = document.querySelectorAll('.gameSquare');
+          let openSquares = [...squares].filter(
+            (square) => !square.textContent
+          );
+          console.log({ squares, openSquares });
+          let random = Math.floor(Math.random() * (openSquares.length - 1));
+          //   console.log(random);
+          const cellIndex = parseInt(openSquares[random].dataset.cellIndex);
+          openSquares[random].textContent = 'O';
+          gameState[cellIndex] = 'O';
+          isUserTurn = !isUserTurn;
+          checkForWin('The computer');
+        }, 650);
+      }
+      function checkForWin(player) {
+        let roundWon = false;
+        for (let i = 0; i <= 7; i++) {
+          const winCondition = winningConditions[i];
+          let a = gameState[winCondition[0]];
+          let b = gameState[winCondition[1]];
+          let c = gameState[winCondition[2]];
+          if (a === '' || b === '' || c === '') {
+            continue;
+          }
+          if (a === b && b === c) {
+            roundWon = true;
+            break;
+          }
+        }
+        if (roundWon) {
+          message.innerText = `${player} won!`;
+          gameboard.removeEventListener('click', play);
+          return roundWon;
+        }
+      }
+      function restart() {
+        let squares = [...gameboard.children];
+        squares.forEach((square) => {
+          square.innerText = '';
+        });
+        message.innerText = '';
+        gameboard.addEventListener('click', play);
+      }
+
+      gameboard.addEventListener('click', play);
+      restartBtn.addEventListener('click', restart);
+    </script>
+  </body>
+</html>

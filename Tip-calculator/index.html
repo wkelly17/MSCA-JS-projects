@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel='stylesheet' href='.'> -->
+    <title>Tip-calculator</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="menu-items">
+        <!-- @@ ===============  APPETIZERS   =============   -->
+        <section class="appetizers">
+          <h2 class="menu-section">Appetizers</h2>
+          <label for="Taco-Loco">
+            Taco Loco ($8.50)
+            <input
+              type="number"
+              name="Taco-Loco"
+              id="Taco-Loco"
+              data-price="8.50"
+              class="menu-item"
+            />
+          </label>
+          <label for="Crispy Nachos">
+            Crispy Nachos ($5.95)
+            <input
+              type="number"
+              name="Crispy-Nachos"
+              id="Crispy-Nachos"
+              data-price="5.95"
+              class="menu-item"
+            />
+          </label>
+          <label for="Mexican Pizza">
+            Mexican Pizza ($7.50)
+            <input
+              type="number"
+              name="Mexican-Pizza"
+              id="Mexican-Pizza"
+              data-price="7.50"
+              class="menu-item"
+            />
+          </label>
+          <label for="Guacamole">
+            Guacamole ($2.75)
+            <input
+              type="number"
+              name="Guacamole"
+              id="Guacamole"
+              data-price="2.75"
+              class="menu-item"
+            />
+          </label>
+        </section>
+
+        <!-- @@ ===============  House Specialities   =============   -->
+        <section class="house-specialities">
+          <h2 class="menu-section">
+            Especialidades de la Casas (House specialities)
+          </h2>
+          <label for="Parridalla-Tu-y-Yo">
+            Parridalla Tu y Yo ($21.95)
+            <input
+              type="number"
+              name="Parridalla-Tu-y-Yo"
+              id="Parridalla-Tu-y-Yo"
+              data-price="21.95"
+              class="menu-item"
+            />
+          </label>
+          <label for="Pedro-special">
+            Pedro special ($9.99)
+            <input
+              type="number"
+              name="Pedro-special"
+              id="Pedro-special"
+              data-price="9.99"
+              class="menu-item"
+            />
+          </label>
+          <label
+            for="Quesadilla-Fajita
+  "
+          >
+            Quesadilla Fajita ($9.49)
+            <input
+              type="number"
+              name="Quesadilla-Fajita
+  "
+              id="Quesadilla-Fajita
+  "
+              data-price="9.49"
+              class="menu-item"
+            />
+          </label>
+        </section>
+        <div class="tacos">
+          <h2 class="menu-section">Tacos</h2>
+          <label for="Choriqueso">
+            Choriqueso ($5.95)
+            <input
+              type="number"
+              name="Choriqueso"
+              id="Choriqueso"
+              data-price="5.95"
+              class="menu-item"
+            />
+          </label>
+          <label for="Tacos-Norteños">
+            Tacos Norteños ($7.95)
+            <input
+              type="number"
+              name="Tacos-Norteños"
+              id="Tacos-Norteños"
+              data-price="7.95"
+              class="menu-item"
+            />
+          </label>
+          <label for="Taco-Suavecitos">
+            Taco Suavecitos ($8.50)
+            <input
+              type="number"
+              name="Taco-Suavecitos"
+              id="Taco-Suavecitos"
+              data-price="8.50"
+              class="menu-item"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="cart">
+        <div class="cart-items">
+          <h3>Your Order:</h3>
+        </div>
+        <span class="subtotal">Subtotal</span>
+
+        <label for="tip"
+          >Tip: <span class="tipAmount">15%</span>
+          <br />
+          <input
+            type="range"
+            name="tip"
+            id="tip"
+            min="0"
+            value="15"
+            class="tip-input"
+            max="100"
+          />
+        </label>
+        <button class="calculateTip">Calculate tip</button>
+        <p class="calculatedTip"></p>
+        <p class="total"></p>
+      </div>
+    </div>
+
+    <style>
+      /* ==== Basic CSS Reset ==== */
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      body {
+        width: 1500px;
+        max-width: calc(100% - 6rem);
+        margin: 0 auto;
+        padding: 1em;
+      }
+      .page-container {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+      }
+      input {
+        width: 40px;
+        float: right;
+      }
+      label {
+        display: block;
+        padding: 0.25em;
+        width: 250px;
+      }
+      .tip-input {
+        display: inline-block;
+        float: none;
+        margin-left: 0.5em;
+        width: 100%;
+      }
+
+      .cart-items {
+        margin-bottom: 2em;
+      }
+      .cart-item {
+        border: solid 1px green;
+        margin: 0;
+        padding: 0.25em 0;
+      }
+    </style>
+    <script>
+      const tipBtn = document.querySelector('.calculateTip');
+      const menuInputs = [...document.querySelectorAll('[data-price]')];
+      const tipSlider = document.querySelector('.tip-input');
+      console.log(menuInputs);
+
+      function calculateBill() {
+        //@# DOM variables
+        const tipAmountDisplay = document.querySelector('.tipAmount');
+        const calculatedTipDisplay = document.querySelector('.calculatedTip');
+
+        let subtotal = updateSubtotal();
+        subtotal ? subtotal : (subtotal = 0);
+
+        // @# calculations
+        let calculatedTip = (subtotal * tipSlider.value * 0.01).toFixed(2);
+        const totalDisplay = document.querySelector('.total');
+        let total = (Number(calculatedTip) + Number(subtotal)).toFixed(2);
+
+        // @# displaying
+        tipAmountDisplay.textContent = `${tipSlider.value}%`;
+        calculatedTipDisplay.textContent = `Tip: $${calculatedTip}`;
+        totalDisplay.textContent = `Total: $${total}`;
+      }
+
+      function updateSubtotal() {
+        if (this.value <= 0) {
+          return;
+        }
+        const subtotalDisplay = document.querySelector('.subtotal');
+        let subtotal = menuInputs.filter((input) => input.value);
+        // debugger;
+        if (subtotal.length == 0) {
+          return;
+        }
+        subtotal = subtotal
+          .map((input) => input.value * input.dataset.price)
+          .reduce((acc, next) => acc + next);
+        subtotalDisplay.innerText = `Subtotal: ${subtotal.toFixed(2)}`;
+        return subtotal;
+      }
+
+      function updateCart() {
+        const cart = [];
+        const cartDisplay = document.querySelector('.cart-items');
+        return function updateCartDisplay() {
+          // debugger;
+          if (!cart.includes(this.name)) {
+            if (this.value <= 0) {
+              return;
+            }
+            let item = document.createElement('p');
+            // debugger;
+            // let quantity = 1;
+            item.innerHTML = `${this.name.replace(/-/, ' ')}: ${this.value}`;
+            item.classList.add('cart-item');
+            item.setAttribute('name', `cart${this.name}`);
+            cartDisplay.appendChild(item);
+            cart.push(this.name);
+            return cart;
+          } else {
+            // debugger;
+            let item = document.querySelector(`
+      [name=cart${this.name}]`);
+            if (this.value == 0) {
+              let index = cart.indexOf(item);
+              cart.splice(index, 1);
+              item.remove();
+            }
+            console.log(this.name);
+            let name = this.name.replace(/-/, ' ');
+            console.log(name);
+            item.innerHTML = `${name}: ${this.value}`;
+            return cart;
+          }
+        };
+      }
+
+      // closure over cart;   Don't think I've successfully used closures, so I was glad to get this one working.
+      const updateCartDisplay = updateCart();
+
+      tipBtn.addEventListener('click', calculateBill);
+
+      //multiple event listeners for menuInputs to retain "this" value in each instead of passing multiple functions to anonymous arrow which I think distorted this value away from DOM element;
+      menuInputs.forEach((input) =>
+        input.addEventListener('change', updateSubtotal)
+      );
+      menuInputs.forEach((input) =>
+        input.addEventListener('change', updateCartDisplay)
+      );
+      tipSlider.addEventListener('input', calculateBill);
+    </script>
+  </body>
+</html>
