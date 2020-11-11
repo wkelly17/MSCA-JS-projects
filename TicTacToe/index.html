@@ -96,6 +96,7 @@
     </style>
 
     <script>
+      //@@ =============== GLOBAL VARIABLES  =============
       let isUserTurn = true;
       const gameboard = document.querySelector('.gameboard');
       console.log({ gameboard });
@@ -119,6 +120,7 @@
         [2, 4, 6],
       ];
 
+      //@@=============== USER PLAY  =============
       function play(event) {
         const cellIndex = parseInt(event.target.dataset.cellIndex);
         console.log(cellIndex);
@@ -136,6 +138,8 @@
         }
         computerPlay();
       }
+
+      //@@=============== COMPUTER PLAY  =============
       function computerPlay() {
         setTimeout(() => {
           let squares = document.querySelectorAll('.gameSquare');
@@ -152,6 +156,8 @@
           checkForWin('The computer');
         }, 650);
       }
+
+      //@@=============== CHECKWIN  =============
       function checkForWin(player) {
         let roundWon = false;
         for (let i = 0; i <= 7; i++) {
@@ -170,9 +176,19 @@
         if (roundWon) {
           message.innerText = `${player} won!`;
           gameboard.removeEventListener('click', play);
+          gameState = gameState = ['', '', '', '', '', '', '', '', ''];
           return roundWon;
         }
+        let squares = document.querySelectorAll('.gameSquare');
+        let openSquares = [...squares].filter((square) => !square.textContent);
+        if (openSquares.length == 0) {
+          message.innerText = `Cat won!`;
+          gameState = gameState = ['', '', '', '', '', '', '', '', ''];
+          gameboard.removeEventListener('click', play);
+        }
       }
+
+      //@@=============== RESTART GAME  =============
       function restart() {
         let squares = [...gameboard.children];
         squares.forEach((square) => {
@@ -182,6 +198,7 @@
         gameboard.addEventListener('click', play);
       }
 
+      //@@=============== EVENT LISTENERS  =============
       gameboard.addEventListener('click', play);
       restartBtn.addEventListener('click', restart);
     </script>
