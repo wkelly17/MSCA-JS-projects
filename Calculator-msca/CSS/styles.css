@@ -1,0 +1,239 @@
+:root {
+  --background: #141618;
+  --numBtnColor: #999;
+  --displayColor: #fff;
+  --spectrum1: #7830aeff;
+  --spectrum2: #7e33a9ff;
+  --spectrum3: #9d4685ff;
+  --spectrum4: #aa4d75ff;
+  --spectrum5: #b55467ff;
+  --spectrum6: #c45c54ff;
+  --spectrum7: #dc6b30ff;
+  --spectrum8: #f77935;
+  /* --gradient: linear-gradient(180deg, rgba(0,50,203,1) 10%, rgba(4,233,166,1) 88%); */
+  --gradient: linear-gradient(
+    135deg,
+    rgba(179, 48, 151, 1) 0%,
+    rgba(247, 104, 53, 1) 100%
+  );
+}
+/* ==== Basic CSS Reset ==== */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/* ==== End CSS Reset ==== */
+body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  background: var(--gradient);
+}
+
+body.light {
+  --spectrum1: #0032cb;
+  --spectrum2: #0053c5;
+  --spectrum3: #006ac1;
+  --spectrum4: #0075be;
+  --spectrum5: #0082bb;
+  --spectrum6: #0093b9;
+  --spectrum7: #00a8b4;
+  --spectrum8: #00ccad;
+  --numBtnColor: #141618;
+  --displayColor: #141618;
+  --background: #fff;
+  --gradient: linear-gradient(
+    135deg,
+    rgba(0, 138, 193, 1) 0%,
+    rgba(0, 184, 185, 1) 100%
+  );
+}
+
+.calc-container {
+  position: relative;
+  min-width: 300px;
+  min-height: 500px;
+  background: var(--background);
+  color: var(--displayColor);
+  display: grid;
+  grid-template-rows: 1.5fr 1fr 4fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    'top top top top'
+    'result result result result'
+    'buttons buttons buttons buttons';
+  border-radius: 20px;
+  /* overflow: hidden; */
+}
+
+.top-display {
+  grid-area: top;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 2.5rem;
+  color: var(--numColor);
+}
+
+.result-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.result-display {
+  grid-area: result;
+  color: #888;
+}
+.buttons {
+  grid-area: buttons;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--background);
+  border-radius: 0 0 20px 20px;
+}
+
+.calc-button {
+  border: none;
+  display: block;
+  font-size: 1.325rem;
+  padding: 0;
+  background: var(--background);
+  color: var(--numBtnColor);
+}
+
+.calc-button:active {
+  color: var(--spectrum8);
+  box-shadow: inset 0px 0px 12px -6px var(--spectrum8);
+}
+
+.calc-button:focus {
+  outline: none;
+  border: none;
+}
+.calc-button:nth-of-type(1) {
+  color: var(--spectrum1);
+}
+.calc-button:nth-of-type(2) {
+  color: var(--spectrum2);
+}
+.calc-button:nth-of-type(3) {
+  color: var(--spectrum3);
+}
+.calc-button:nth-of-type(4) {
+  color: var(--spectrum4);
+}
+.calc-button:nth-of-type(8) {
+  color: var(--spectrum5);
+}
+.calc-button:nth-of-type(12) {
+  color: var(--spectrum6);
+}
+.calc-button:nth-of-type(16) {
+  color: var(--spectrum7);
+}
+.calc-button:nth-of-type(20) {
+  background: var(--spectrum8);
+  border-radius: 0 0 17px;
+  display: block;
+  color: white;
+}
+.calc-button:nth-of-type(17) {
+  background: var(--gradient);
+  color: white;
+  border-radius: 0 0 0 17px;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 15px 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 25px;
+  width: 25px;
+  left: 0px;
+  top: 50%;
+  transform: translate(15%, -50%);
+  background: var(--gradient);
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--background);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translate(140%, -50%);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
