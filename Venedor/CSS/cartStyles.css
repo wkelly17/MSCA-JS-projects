@@ -1,0 +1,50 @@
+@import url(./styles.css);
+
+.cartCheckout img {
+  max-width: 100px;
+}
+
+th,
+td {
+  border: solid black 1px;
+  padding: 5px var(--space-xxs);
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: var(--space-xl);
+  max-width: calc(100% - 3rem);
+}
+
+.elongated {
+  text-align: right;
+  padding: var(--space-sm) var(--space-xl);
+}
+
+.colored {
+  color: red;
+  font-weight: bold;
+}
+.deleteItemIcon {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: var(--space-xxs);
+  margin-left: var(--space-xxxs);
+  fill: red;
+  border: solid 1px red;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.cartQuantityController {
+  width: 75px;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  table {
+    font-size: var(--text-sm);
+  }
+}

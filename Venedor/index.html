@@ -1,0 +1,504 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/styles.css" />
+    <title>Venedor Replica</title>
+  </head>
+  <body>
+    <div class="page-container">
+      <header>
+        <nav class="top-nav">
+          <div class="inner top-nav-items-container">
+            <ul class="top-nav-list">
+              <li>
+                <a href="#">
+                  <svg class="icon icon-edit">
+                    <use
+                      xlink:href="./media/icons/symbol-defs.svg#icon-edit"
+                    ></use>
+                  </svg>
+                  My Wishlist
+                </a>
+              </li>
+
+              <li>
+                <a href="#">
+                  <svg class="icon icon-user">
+                    <use
+                      xlink:href="./media/icons/symbol-defs.svg#icon-user"
+                    ></use>
+                  </svg>
+                  My Account
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <svg class="icon icon-cart">
+                    <use
+                      xlink:href="./media/icons/symbol-defs.svg#icon-cart"
+                    ></use>
+                  </svg>
+                  Shopping Cart
+                </a>
+              </li>
+              <li>
+                <a href="./checkout.html">
+                  <svg class="icon icon-checkmark">
+                    <use
+                      xlink:href="./media/icons/symbol-defs.svg#icon-checkmark"
+                    ></use>
+                  </svg>
+                  Checkout
+                </a>
+              </li>
+            </ul>
+            <p class="top-nav-message">
+              Welcome visitor. You can <a href="#">login</a> or
+              <a href="#">create an account</a>
+            </p>
+          </div>
+        </nav>
+        <nav class="main-nav inner">
+          <div class="top-main-nav-items-container">
+            <a href="./index.html">
+              <h1 class="company-name">
+                <img src="./media/Brand-logo.png" alt="Venedor Brand" />
+              </h1>
+            </a>
+            <div class="site-control-buttons">
+              <button class="main-nav-btn">US Dollar</button>
+              <button class="main-nav-btn">
+                <svg class="icon icon-english-language">
+                  <use
+                    xlink:href="./media/icons/symbol-defs.svg#icon-english-language"
+                  ></use>
+                </svg>
+                English
+              </button>
+              <a href="./checkout.html" data-role="page-cart">
+                <svg class="icon icon-cart">
+                  <use
+                    xlink:href="./media/icons/symbol-defs.svg#icon-cart"
+                  ></use>
+                </svg>
+                <span data-role="cart-quantity">0</span>
+                item(s) -
+                <span data-role="price">$0.00</span>
+              </a>
+            </div>
+          </div>
+          <div class="bottom-main-nav-items-container">
+            <ul class="bottom-main-nav-list">
+              <li><a href="#">Fashion</a></li>
+              <li><a href="#">Electronics</a></li>
+              <li><a href="#">Gifts</a></li>
+              <li><a href="#">Books</a></li>
+              <li><a href="#">At Home</a></li>
+              <li><a href="#">Music</a></li>
+            </ul>
+            <div class="search-bar-container">
+              <input
+                type="text"
+                name="site-search"
+                id="site-search"
+                placeholder="Search here..."
+              />
+              <label for="site-search" class="sr-only">Site search bar</label>
+              <svg class="icon icon-search">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-search"
+                ></use>
+              </svg>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <section class="hero-section">
+        <div class="hero-slider inner">
+          <img src="./media/Hero-man.png" alt="Picture of man" />
+          <div class="hero-copy">
+            <p class="emphasized accented">New</p>
+            <p class="emphasized">Men Collection</p>
+            <p class="copy-details">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed
+              officia voluptatem corporis voluptate, deserunt debitis totam,
+              culpa voluptates a, perspiciatis autem eveniet ad! Ullam,
+              corrupti! Ea exercitationem voluptas amet praesentium.
+            </p>
+            <button>Shop Now</button>
+          </div>
+        </div>
+      </section>
+      <!-- @@===============  SUBHERO ADS   =============   -->
+      <section class="subhero-ads inner">
+        <div class="single-ad">
+          <img src="./media/Free-shipping.png" alt="free shipp" />
+        </div>
+        <div class="single-ad">
+          <img src="./media/sale-sign.png" alt="Sale sign" />
+        </div>
+        <div class="single-ad">
+          <img src="./media/new-arrivals.png" alt="New arrivals" />
+        </div>
+      </section>
+      <!-- @@===============  LATEST SECTION   =============   -->
+      <section class="latest-section inner">
+        <div class="section-copy">
+          <div class="section-header-copy">
+            <h2 class="section-header">Latest</h2>
+            <p>
+              Buy discount items from the latest collections of world brands.
+            </p>
+          </div>
+          <div class="pagination-buttons">
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-left">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-left"
+                ></use>
+              </svg>
+            </button>
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-right">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-right"
+                ></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-carousel">
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/bracelet.png"
+              alt="bracelet"
+              data-name="Jewelry-bracelet"
+            />
+            <button class="addCartBtn" data-price="40">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/jackets.png"
+              alt="jackets"
+              data-name="Trench Coat"
+            />
+            <button class="addCartBtn" data-price="435">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/gloves.png"
+              alt="gloves"
+              data-name="Gloves"
+            />
+            <button class="addCartBtn" data-price="19">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/sweater.png"
+              alt="sweater"
+              data-name="Sweater"
+            />
+            <button class="addCartBtn" data-price="19">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+      <!-- @@===============  ABOUT SECTION   =============   -->
+      <section class="about-section inner">
+        <div class="about-copy">
+          <h2 class="section-header">Welcome to Venedor</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+            repellendus animi itaque modi, deleniti quaerat ab officiis, vel
+            beatae libero, dolore iste minus commodi. Quae non tempore provident
+            omnis fugiat voluptatem id dolores, at commodi saepe vitae mollitia,
+            culpa eius atque fugit placeat quasi nesciunt obcaecati, deserunt
+            ratione consectetur dolor.
+          </p>
+        </div>
+
+        <img src="./media/computers.png" alt="Venedor About" />
+      </section>
+      <!-- @@===============  BESTSELLERS SECTION   =============   -->
+      <section class="bestseller-section inner">
+        <div class="section-copy">
+          <div class="section-header-copy">
+            <h2 class="section-header">Bestsellers</h2>
+            <p>
+              Special offers and biggest discounts for the most popular products
+            </p>
+          </div>
+          <div class="pagination-buttons">
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-left">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-left"
+                ></use>
+              </svg>
+            </button>
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-right">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-right"
+                ></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-carousel">
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/Heels.png"
+              alt="Heels"
+              data-name="Heels"
+            />
+            <button class="addCartBtn" data-price="40">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/bag.png"
+              alt="bag"
+              data-name="Fancy Bag"
+            />
+            <button class="addCartBtn" data-price="435">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/blue-shoes.png"
+              alt="blue-shoes"
+              data-name="Blue Shoes"
+            />
+            <button class="addCartBtn" data-price="19">Add to Cart</button>
+          </div>
+          <div class="single-item">
+            <img
+              src="./media/Stock-products/yellow-coat.png"
+              alt="yellow-coat"
+              data-name="Yellow Coat"
+            />
+            <button class="addCartBtn" data-price="70">Add to Cart</button>
+          </div>
+        </div>
+      </section>
+      <!-- @@===============  MANUFACTURERS SECTIONS   =============   -->
+      <section class="manufacturers-section inner">
+        <div class="section-copy">
+          <div class="section-header-copy">
+            <h2 class="section-header">Manufacturers</h2>
+          </div>
+          <div class="pagination-buttons">
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-left">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-left"
+                ></use>
+              </svg>
+            </button>
+            <button class="pagination-button">
+              <svg class="icon icon-chevron-right">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-chevron-right"
+                ></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-carousel">
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+          <div class="brand-logo">
+            <img src="https://via.placeholder.com/170x90" alt="placeholder" />
+          </div>
+        </div>
+      </section>
+      <!-- @@===============  SUBSCRIBE SECTION   =============   -->
+      <section class="subscribe-section">
+        <div class="subscribe-copy inner">
+          <h3 class="subscribeHeader">
+            Sign up to receive the latest fashion News
+          </h3>
+          <div class="signup-container">
+            <input
+              type="email"
+              name="emailSignup"
+              id="emailSignup"
+              placeholder="Enter your email address"
+            />
+            <span class="sr-only"
+              >Enter Your Email address here to sign up</span
+            >
+
+            <button class="signUpBtn">Sign up</button>
+          </div>
+        </div>
+      </section>
+      <!-- @@===============  FOOTER SECTION   =============   -->
+      <footer class="main-footer">
+        <div class="footer-columns-container inner">
+          <div class="footer-column">
+            <h4>My Account</h4>
+            <div class="footer-column-content">
+              <ul>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Personal Information</a></li>
+                <li><a href="#">Addresses</a></li>
+                <li><a href="#">Discount</a></li>
+                <li><a href="#">Orders history</a></li>
+                <li><a href="#">Your Vouchers</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h4>Information</h4>
+            <div class="footer-column-content">
+              <ul>
+                <li><a href="#">New products</a></li>
+                <li><a href="#">Top sellers</a></li>
+                <li><a href="#">Specials</a></li>
+                <li><a href="#">Manufacturers</a></li>
+                <li><a href="#">Suppliers </a></li>
+                <li><a href="#">Our stores</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-column twitter-column">
+            <h4>From Twitter</h4>
+            <div class="footer-column-content twitter-content">
+              <div class="tweet">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis sed necessitatibus doloribus. Odit, sapiente!
+                  <a href="#">http:linklinklink</a>
+                </p>
+                <p class="tweet-timestamp">About 1 hours ago</p>
+              </div>
+              <div class="tweet">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Facilis sed necessitatibus doloribus. Odit, sapiente!
+                  <a href="#">http:linklinklink</a>
+                </p>
+                <p class="tweet-timestamp">About 1 hours ago</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-column facebook-column">
+            <div class="facebook-footer-header">
+              <h4>Facebook</h4>
+              <button class="likeBtn">Like!</button>
+            </div>
+            <div class="footer-column-content facebook-content">
+              <p>1452 people like <a href="#">promoKit</a></p>
+              <div class="people-gallery">
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Anna</p>
+                </div>
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Tom</p>
+                </div>
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Antuan</p>
+                </div>
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Mila</p>
+                </div>
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Justin</p>
+                </div>
+                <div class="person">
+                  <img
+                    src="https://via.placeholder.com/70x70"
+                    alt="placeholder"
+                  />
+                  <p>Maria</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <div class="social-container">
+        <div class="social-icons-container inner">
+          <ul>
+            <li>
+              <svg class="icon icon-facebook">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-facebook"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg class="icon icon-twitter">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-twitter"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg class="icon icon-wifi">
+                <use xlink:href="./media/icons/symbol-defs.svg#icon-wifi"></use>
+              </svg>
+            </li>
+            <li>
+              <svg class="icon icon-linkedin">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-linkedin"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg class="icon icon-skype">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-skype"
+                ></use>
+              </svg>
+            </li>
+            <li>
+              <svg class="icon icon-mail-envelope-closed">
+                <use
+                  xlink:href="./media/icons/symbol-defs.svg#icon-mail-envelope-closed"
+                ></use>
+              </svg>
+            </li>
+          </ul>
+          <p class="copyright-message">Copyright Lorem, ipsum dolor.</p>
+        </div>
+      </div>
+      <!-- final page container div -->
+    </div>
+    <script src="./cart.js" type="module"></script>
+  </body>
+</html>
