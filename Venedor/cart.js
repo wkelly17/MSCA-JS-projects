@@ -1,16 +1,16 @@
 // export default
 class Cart {
   constructor() {
-	this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+    this.cart = JSON.parse(localStorage.getItem('cart')) || [];
     this.cartQuantityState =
       JSON.parse(localStorage.getItem('cartQuantityState')) || 0;
     this.cartTotal = JSON.parse(localStorage.getItem('cartTotal')) || 0;
 
     this.cartDisplay = document.querySelector('[data-role = "page-cart"]');
     this.cartQuantityDisplay = this.cartDisplay.children[1];
-    this.cartTotalDisplay = this.cartDisplay.children[2];;
+    this.cartTotalDisplay = this.cartDisplay.children[2];
 
-	this.addToCartBtns = document.querySelectorAll('.addCartBtn');
+    this.addToCartBtns = document.querySelectorAll('.addCartBtn');
     console.dir(this.checkoutTable);
     this.addEventListeners();
     console.log(location.hash);
@@ -23,8 +23,8 @@ class Cart {
         this.addToCart(event);
       })
     );
-	this.cartDisplay.addEventListener('click', this.showCheckoutPage);
-	window.onload(this.updateCartButton)
+    this.cartDisplay.addEventListener('click', this.showCheckoutPage);
+    this.updateCartButton(); //going back;
   }
 
   updateCartButton() {

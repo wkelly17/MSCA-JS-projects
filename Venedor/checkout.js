@@ -1,5 +1,3 @@
-// import Cart from './cart.js';
-
 class Checkout {
   constructor() {
     this.cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -18,7 +16,8 @@ class Checkout {
       '[data-role = "deleteItem"]'
     );
 
-    this.addEventListeners();
+	this.addEventListeners();
+	this.populateTable()
   }
 
   addEventListeners() {
@@ -166,11 +165,5 @@ class Checkout {
 }
 
 let checkout = new Checkout();
-
-window.onload = () => {
-  checkout.updateCartButton();
-  checkout.populateTable();
-};
-// console.log(Cart);
 
 //Can pull from local storage... on url load...
